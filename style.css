@@ -1,0 +1,103 @@
+body {
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:#0a1f44;
+color:white;
+}
+
+/* NAV */
+nav {
+display:flex;
+justify-content:space-between;
+padding:20px 40px;
+background:linear-gradient(90deg,#001f5c,#8B0000);
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+nav a {
+color:white;
+margin-left:20px;
+text-decoration:none;
+}
+
+nav a:hover { color:#FFD700; }
+
+/* HERO */
+.hero {
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.9)),
+url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2');
+background-size:cover;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.hero h1 {
+font-size:80px;
+color:#FFD700;
+}
+
+.hero span { color:red; }
+
+.btn {
+background:red;
+padding:12px 25px;
+color:white;
+text-decoration:none;
+}
+
+/* SECTIONS */
+section { padding:80px 40px; }
+
+/* GRID */
+.grid {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+/* CARD */
+.card {
+background:#122b5c;
+padding:20px;
+border-radius:10px;
+text-align:center;
+transition:0.3s;
+}
+
+.card:hover {
+transform:scale(1.05);
+background:#1c3f8a;
+}
+
+/* GALLERY */
+.gallery img {
+width:100%;
+border-radius:10px;
+}
+
+/* MANAGER */
+.manager {
+display:flex;
+gap:40px;
+flex-wrap:wrap;
+align-items:center;
+}
+
+/* FORM */
+form input, form textarea {
+width:100%;
+padding:10px;
+margin:10px 0;
+}
+
+footer {
+text-align:center;
+padding:20px;
+background:black;
+}
