@@ -1,6 +1,18 @@
+// SCROLL REVEAL
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", ()=>{
+sections.forEach(sec=>{
+if(window.scrollY > sec.offsetTop - 400){
+sec.classList.add("show");
+}
+});
+});
+
+// COUNTDOWN
 const matchDate = new Date("April 30, 2026 21:30:00").getTime();
 
-setInterval(() => {
+setInterval(()=>{
 const now = new Date().getTime();
 const diff = matchDate - now;
 
