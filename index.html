@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+
+    
+  <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,141 +8,202 @@
 <title>Team United FC</title>
 
 <style>
-body {
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
 }
 
-header {
-    background: #0b3d91;
+body {
+    background: #0a1f44;
     color: white;
-    padding: 15px;
-    text-align: center;
 }
 
-header img {
-    width: 120px;
-}
-
+/* NAVBAR */
 nav {
-    background: #ffd700;
-    padding: 10px;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background: rgba(0,0,0,0.6);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav h1 {
+    color: #FFD700;
 }
 
 nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #0b3d91;
-    font-weight: bold;
-}
-
-section {
-    padding: 40px;
-}
-
-.hero {
-    background: url('https://images.unsplash.com/photo-1518091043644-c1d4457512c6') no-repeat center/cover;
     color: white;
-    text-align: center;
-    padding: 100px 20px;
+    margin-left: 20px;
+    text-decoration: none;
 }
 
-.hero h1 {
-    font-size: 50px;
+/* HERO */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,50,0.7), rgba(0,0,0,0.9)),
+    url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 50px;
+}
+
+.hero h2 {
+    font-size: 60px;
+    color: #FFD700;
+}
+
+.hero p {
+    margin: 20px 0;
+    font-size: 20px;
 }
 
 .btn {
-    background: #ffd700;
-    color: #0b3d91;
-    padding: 10px 20px;
+    background: #FFD700;
+    color: #0a1f44;
+    padding: 12px 25px;
     text-decoration: none;
     font-weight: bold;
 }
 
-.cards {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+/* SECTION */
+section {
+    padding: 80px 50px;
 }
 
-.card {
-    background: white;
+/* PLAYERS */
+.players {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 20px;
+}
+
+.player-card {
+    background: #122b5c;
     padding: 20px;
-    flex: 1;
-    min-width: 250px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.player-card:hover {
+    transform: translateY(-10px);
+}
+
+/* COUNTDOWN */
+#countdown {
+    font-size: 30px;
+    color: #FFD700;
+}
+
+/* GALLERY */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 10px;
+}
+
+.gallery img {
+    width: 100%;
     border-radius: 10px;
 }
 
+/* CONTACT */
+.contact p {
+    margin: 10px 0;
+}
+
+/* FOOTER */
 footer {
-    background: #0b3d91;
-    color: white;
     text-align: center;
     padding: 20px;
+    background: black;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-    <img src="logo.png" alt="Team United Logo">
-    <h1>Team United FC</h1>
-</header>
-
 <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#players">Players</a>
-    <a href="#fixtures">Fixtures</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#contact">Contact</a>
+    <h1>Team United FC</h1>
+    <div>
+        <a href="#about">About</a>
+        <a href="#players">Players</a>
+        <a href="#fixtures">Fixtures</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </div>
 </nav>
 
-<section class="hero" id="home">
-    <h1>Welcome to Team United FC</h1>
-    <p>Building Talent. Inspiring Community.</p>
-    <a href="#contact" class="btn">Join Us</a>
-</section>
+<div class="hero">
+    <div>
+        <h2>TEAM UNITED FC</h2>
+        <p>Building Talent. Inspiring Community.</p>
+        <a href="#contact" class="btn">Join Us</a>
+    </div>
+</div>
 
 <section id="about">
     <h2>About Us</h2>
     <p>
-    Team United FC was established in 1998 by Clive Steve with a vision to unite young, talented players and foster a strong soccer community. The club is built on core values of family, personal growth, and youth empowerment, providing a supportive environment where players can develop both on and off the field.
+    Established in 1998 by Clive Steve, Team United FC brings together talented youth to build a strong soccer community focused on growth, family, and empowerment.
     </p>
 </section>
 
 <section id="players">
     <h2>Our Players</h2>
-    <div class="cards">
-        <div class="card">Player 1<br>Position</div>
-        <div class="card">Player 2<br>Position</div>
-        <div class="card">Player 3<br>Position</div>
+    <div class="players">
+        <div class="player-card">Player 1<br>Forward</div>
+        <div class="player-card">Player 2<br>Midfielder</div>
+        <div class="player-card">Player 3<br>Defender</div>
     </div>
 </section>
 
 <section id="fixtures">
-    <h2>Fixtures & Results</h2>
-    <p>Upcoming Match: Team United FC vs Afro Elite - 9:30 PM</p>
+    <h2>Next Match</h2>
+    <p>Team United FC vs Afro Elite</p>
+    <div id="countdown"></div>
 </section>
 
 <section id="gallery">
     <h2>Gallery</h2>
-    <p>Add your match photos here.</p>
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1518091043644-c1d4457512c6">
+        <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2">
+    </div>
 </section>
 
-<section id="contact">
-    <h2>Contact Us</h2>
+<section id="contact" class="contact">
+    <h2>Contact</h2>
     <p>Email: teamunited1998@gmail.com</p>
     <p>Phone: (240) 605-9269</p>
     <p>Instagram: @teamunited_1998</p>
-    <p>Facebook: Team United FC</p>
 </section>
 
 <footer>
-    <p>© 2026 Team United FC | All Rights Reserved</p>
+    <p>© 2026 Team United FC</p>
 </footer>
+
+<script>
+// COUNTDOWN TIMER
+const matchDate = new Date("April 30, 2026 21:30:00").getTime();
+
+setInterval(() => {
+    const now = new Date().getTime();
+    const diff = matchDate - now;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+
+    document.getElementById("countdown").innerHTML =
+        days + "d " + hours + "h " + minutes + "m";
+}, 1000);
+</script>
 
 </body>
 </html>
