@@ -1,80 +1,158 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Team United FC</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team United FC</title>
 
 <style>
-body {
-    margin:0;
-    font-family: Arial;
-    color:white;
-    background:black;
+* {
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: 'Segoe UI', sans-serif;
 }
 
-/* NAV */
+body {
+background:#0a1f44;
+color:white;
+scroll-behavior:smooth;
+}
+
+/* NAVBAR */
 nav {
-    display:flex;
-    justify-content:space-between;
-    padding:20px;
-    background:linear-gradient(90deg,#001f5c,#8B0000);
+position:fixed;
+width:100%;
+display:flex;
+justify-content:space-between;
+padding:20px 40px;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+nav h2 {
+color:#FFD700;
 }
 
 nav a {
-    color:white;
-    margin:0 15px;
-    text-decoration:none;
-    font-weight:bold;
+color:white;
+margin-left:20px;
+text-decoration:none;
+transition:0.3s;
+}
+
+nav a:hover {
+color:red;
 }
 
 /* HERO */
 .hero {
-    height:100vh;
-    background:
-    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
-    url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2');
-    background-size:cover;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
+url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
 }
 
 .hero h1 {
-    font-size:70px;
-    color:#FFD700;
+font-size:80px;
+color:#FFD700;
+text-shadow:0 0 20px rgba(255,215,0,0.7);
 }
 
 .hero span {
-    color:red;
+color:red;
+}
+
+.hero p {
+margin-top:20px;
+font-size:22px;
 }
 
 .btn {
-    background:red;
-    padding:12px 25px;
-    text-decoration:none;
-    color:white;
-    margin-top:20px;
-    display:inline-block;
+background:red;
+padding:15px 30px;
+margin-top:20px;
+display:inline-block;
+text-decoration:none;
+color:white;
+font-weight:bold;
+border-radius:5px;
 }
 
 /* SECTION */
 section {
-    padding:80px 40px;
-    text-align:center;
+padding:100px 50px;
+opacity:0;
+transform:translateY(40px);
+transition:1s;
 }
 
-.highlight {
-    color:#FFD700;
+section.show {
+opacity:1;
+transform:translateY(0);
 }
 
+/* MATCH */
+.match {
+text-align:center;
+}
+
+#countdown {
+font-size:40px;
+color:#FFD700;
+margin-top:10px;
+}
+
+/* MANAGER */
+.manager {
+display:flex;
+gap:40px;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.manager img {
+width:250px;
+border-radius:10px;
+}
+
+.manager-text {
+max-width:600px;
+}
+
+/* PLAYERS */
+.players {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+.card {
+background:#122b5c;
+padding:20px;
+border-radius:10px;
+text-align:center;
+transition:0.3s;
+cursor:pointer;
+}
+
+.card:hover {
+transform:scale(1.05);
+background:#1c3f8a;
+}
+
+/* FOOTER */
 footer {
-    background:#111;
-    padding:20px;
-    text-align:center;
+text-align:center;
+padding:20px;
+background:black;
 }
 </style>
 </head>
@@ -82,35 +160,83 @@ footer {
 <body>
 
 <nav>
-    <h2>Team United FC</h2>
-    <div>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="players.html">Players</a>
-        <a href="contact.html">Contact</a>
-    </div>
+<h2>Team United FC</h2>
+<div>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="players.html">Players</a>
+<a href="contact.html">Contact</a>
+</div>
 </nav>
 
 <div class="hero">
-    <div>
-        <h1>TEAM UNITED <span>FC</span></h1>
-        <p>Where Talent Meets Passion</p>
-        <a href="players.html" class="btn">Meet The Squad</a>
-    </div>
+<div>
+<h1>TEAM UNITED <span>FC</span></h1>
+<p>Where Talent Meets Greatness</p>
+<a href="players.html" class="btn">Explore Squad</a>
+</div>
 </div>
 
+<section class="match">
+<h2>Next Match</h2>
+<p>Team United FC vs Afro Elite</p>
+<div id="countdown"></div>
+</section>
+
+<section class="manager">
+<img src="manager.jpg">
+<div class="manager-text">
+<h2 style="color:#FFD700;">Manager</h2>
+<p>
+[Manager Name] leads Team United FC with a strong vision of discipline, development, and success. With years of experience in nurturing young talent, he continues to build a competitive and united squad focused on excellence both on and off the field.
+</p>
+</div>
+</section>
+
 <section>
-    <h2 class="highlight">Next Match</h2>
-    <p>Team United FC vs Afro Elite</p>
-    <p style="color:red;">Kickoff: 9:30 PM</p>
+<h2 style="text-align:center;color:#FFD700;">Featured Players</h2>
+<div class="players">
+<div class="card">Player 1</div>
+<div class="card">Player 2</div>
+<div class="card">Player 3</div>
+<div class="card">Player 4</div>
+</div>
 </section>
 
 <footer>
-    <p>© 2026 Team United FC</p>
+<p>© 2026 Team United FC</p>
 </footer>
+
+<script>
+// SCROLL ANIMATION
+const sections = document.querySelectorAll("section");
+window.addEventListener("scroll", () => {
+sections.forEach(sec => {
+const top = window.scrollY;
+if(top > sec.offsetTop - 400){
+sec.classList.add("show");
+}
+});
+});
+
+// COUNTDOWN
+const matchDate = new Date("April 30, 2026 21:30:00").getTime();
+setInterval(() => {
+const now = new Date().getTime();
+const diff = matchDate - now;
+
+const d = Math.floor(diff/(1000*60*60*24));
+const h = Math.floor((diff/(1000*60*60))%24);
+const m = Math.floor((diff/(1000*60))%60);
+
+document.getElementById("countdown").innerHTML =
+d+"d "+h+"h "+m+"m";
+},1000);
+</script>
 
 </body>
 </html>
+
 
 <!DOCTYPE html>
 <html>
